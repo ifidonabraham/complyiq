@@ -1,0 +1,172 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>ComplyIQ Settings</title>
+  <link rel="stylesheet" href="../../public/options.css">
+</head>
+<body class="complyiq-options">
+  <div class="container">
+    <!-- Header -->
+    <header class="options-header">
+      <h1>⚡ ComplyIQ Settings</h1>
+      <p class="subtitle">Configure your privacy & compliance checker</p>
+    </header>
+
+    <!-- Main Content -->
+    <main class="options-main">
+      <!-- API Key Section -->
+      <section class="settings-section">
+        <h2>API Configuration</h2>
+        
+        <div class="setting-group">
+          <label for="apiKeyInput" class="setting-label">
+            API Key
+            <span class="tooltip" title="Get your API key from ComplyIQ dashboard">ℹ️</span>
+          </label>
+          <div class="input-group">
+            <input
+              type="password"
+              id="apiKeyInput"
+              placeholder="sk_live_..."
+              class="setting-input"
+            />
+            <button id="toggleApiKeyBtn" class="toggle-btn" title="Show/Hide">👁️</button>
+          </div>
+          <p class="setting-help">
+            Your API key is stored securely in Chrome's storage and never transmitted
+            except to the ComplyIQ backend.
+          </p>
+        </div>
+
+        <div class="setting-group">
+          <label for="backendUrlInput" class="setting-label">
+            Backend URL
+          </label>
+          <input
+            type="url"
+            id="backendUrlInput"
+            placeholder="http://localhost:8000"
+            class="setting-input"
+            value="http://localhost:8000"
+          />
+          <p class="setting-help">
+            Advanced: Change this if you're using a custom backend server
+          </p>
+        </div>
+
+        <div class="setting-actions">
+          <button id="testApiBtn" class="btn-secondary">🧪 Test Connection</button>
+          <button id="saveSettingsBtn" class="btn-primary">💾 Save Settings</button>
+        </div>
+
+        <div id="statusMessage" class="status-message hidden"></div>
+      </section>
+
+      <!-- Notification Settings -->
+      <section class="settings-section">
+        <h2>Notifications</h2>
+        
+        <div class="setting-group">
+          <label class="checkbox-label">
+            <input
+              type="checkbox"
+              id="enableNotificationsCheckbox"
+              checked
+            />
+            <span>Show warnings for sensitive fields</span>
+          </label>
+          <p class="setting-help">
+            Display inline warnings when you focus on sensitive input fields
+            (BVN, NIN, email, phone, card numbers)
+          </p>
+        </div>
+
+        <div class="setting-group">
+          <label class="checkbox-label">
+            <input
+              type="checkbox"
+              id="enableRiskWarningsCheckbox"
+              checked
+            />
+            <span>Show risk warnings for unsafe sites</span>
+          </label>
+          <p class="setting-help">
+            Display banner warnings when you attempt to enter sensitive data
+            on websites with low ComplyIQ ratings
+          </p>
+        </div>
+
+        <div class="setting-group">
+          <label class="checkbox-label">
+            <input
+              type="checkbox"
+              id="enableFormConfirmationCheckbox"
+              checked
+            />
+            <span>Confirm form submissions on risky sites</span>
+          </label>
+          <p class="setting-help">
+            Ask for confirmation before submitting forms on sites with very
+            low ratings
+          </p>
+        </div>
+      </section>
+
+      <!-- Privacy Section -->
+      <section class="settings-section">
+        <h2>Privacy & Data</h2>
+        
+        <div class="setting-group">
+          <label class="checkbox-label">
+            <input
+              type="checkbox"
+              id="enableLoggingCheckbox"
+              checked
+            />
+            <span>Allow diagnostic logging</span>
+          </label>
+          <p class="setting-help">
+            Send anonymized usage data to help us improve ComplyIQ. Never
+            includes your personal data.
+          </p>
+        </div>
+
+        <button id="clearCacheBtn" class="btn-secondary">
+          🗑️ Clear Scan History
+        </button>
+        <p class="setting-help">
+          Removes all cached website scan results. They will be re-scanned
+          when you visit them again.
+        </p>
+      </section>
+
+      <!-- About Section -->
+      <section class="settings-section">
+        <h2>About</h2>
+        
+        <div class="about-content">
+          <p>
+            <strong>ComplyIQ v1.0.0</strong>
+          </p>
+          <p>
+            Privacy & Compliance Intelligence Platform for Nigeria (NDPA)
+          </p>
+          <p>
+            Protects your personal data from risky websites in real-time.
+          </p>
+
+          <div class="links">
+            <a href="https://complyiq.io/privacy" target="_blank">Privacy Policy</a>
+            <a href="https://complyiq.io/terms" target="_blank">Terms of Service</a>
+            <a href="https://complyiq.io/help" target="_blank">Support</a>
+          </div>
+        </div>
+      </section>
+    </main>
+  </div>
+
+  <script src="../../public/options.js"></script>
+</body>
+</html>

@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>ComplyIQ - Website Safety</title>
+  <link rel="stylesheet" href="../../public/popup.css">
+</head>
+<body class="complyiq-popup">
+  <!-- Loading state -->
+  <div id="loadingState" class="state-container">
+    <div class="loading-spinner"></div>
+    <p>Checking website safety...</p>
+  </div>
+
+  <!-- Error state -->
+  <div id="errorState" class="state-container hidden">
+    <div class="error-icon">⚠️</div>
+    <h3>Configuration Required</h3>
+    <p id="errorMessage">Please configure your API key in settings.</p>
+    <button id="openSettingsBtn" class="btn-primary">Open Settings</button>
+  </div>
+
+  <!-- Success state -->
+  <div id="successState" class="state-container hidden">
+    <!-- Header -->
+    <div class="popup-header">
+      <div class="logo">⚡ ComplyIQ</div>
+      <button id="settingsBtn" class="icon-btn" title="Settings">⚙️</button>
+    </div>
+
+    <!-- Domain & Rating -->
+    <div class="rating-section">
+      <h2 id="domainName" class="domain-name">example.com</h2>
+
+      <div class="rating-display">
+        <div class="circular-progress">
+          <svg viewBox="0 0 100 100">
+            <circle
+              cx="50"
+              cy="50"
+              r="45"
+              fill="none"
+              stroke="#1e293b"
+              stroke-width="4"
+            />
+            <circle
+              id="progressCircle"
+              cx="50"
+              cy="50"
+              r="45"
+              fill="none"
+              stroke="#00D9FF"
+              stroke-width="4"
+              stroke-dasharray="0 282.7"
+              stroke-dashoffset="0"
+              transform="rotate(-90 50 50)"
+              style="transition: stroke-dasharray 500ms ease"
+            />
+          </svg>
+          <span id="ratingScore" class="rating-text">--</span>
+        </div>
+
+        <div class="rating-verdict">
+          <h3 id="verdict" class="verdict-title">--</h3>
+          <p id="verdictDesc" class="verdict-description">--</p>
+        </div>
+      </div>
+    </div>
+
+    <!-- Quick Stats -->
+    <div class="stats-grid">
+      <div class="stat-card">
+        <div class="stat-label">Trust</div>
+        <div class="stat-value" id="trustScore">--</div>
+      </div>
+      <div class="stat-card">
+        <div class="stat-label">Compliance</div>
+        <div class="stat-value" id="complianceScore">--</div>
+      </div>
+      <div class="stat-card">
+        <div class="stat-label">HTTPS</div>
+        <div class="stat-value" id="httpsGrade">--</div>
+      </div>
+    </div>
+
+    <!-- Key Findings -->
+    <div class="findings-section">
+      <h4>Key Findings</h4>
+      <ul id="keyFindings" class="findings-list">
+        <li>Analyzing...</li>
+      </ul>
+    </div>
+
+    <!-- Actions -->
+    <div class="action-buttons">
+      <button id="viewReportBtn" class="btn-secondary">📊 Full Report</button>
+      <button id="rescanBtn" class="btn-secondary">🔄 Rescan</button>
+    </div>
+
+    <!-- Footer -->
+    <div class="popup-footer">
+      <p class="last-scanned" id="lastScanned">--</p>
+    </div>
+  </div>
+
+  <script src="../../public/popup.js"></script>
+</body>
+</html>

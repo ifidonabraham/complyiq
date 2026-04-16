@@ -1,0 +1,56 @@
+{
+  "manifest_version": 3,
+  "name": "ComplyIQ",
+  "version": "1.0.0",
+  "description": "Privacy & Compliance Intelligence Platform - Protect your personal data",
+  
+  "permissions": [
+    "storage",
+    "scripting",
+    "activeTab",
+    "tabs",
+    "webRequest"
+  ],
+  
+  "host_permissions": [
+    "https://*/*",
+    "http://localhost:8000/*"
+  ],
+  
+  "background": {
+    "service_worker": "src/background.js"
+  },
+  
+  "content_scripts": [
+    {
+      "matches": ["https://*/*", "http://*/*"],
+      "js": ["src/content.js"],
+      "run_at": "document_start"
+    }
+  ],
+  
+  "action": {
+    "default_popup": "src/pages/popup.html",
+    "default_title": "ComplyIQ - Check website safety",
+    "default_icons": {
+      "16": "public/icon-16.png",
+      "48": "public/icon-48.png",
+      "128": "public/icon-128.png"
+    }
+  },
+  
+  "icons": {
+    "16": "public/icon-16.png",
+    "48": "public/icon-48.png",
+    "128": "public/icon-128.png"
+  },
+  
+  "options_page": "src/pages/options.html",
+  
+  "web_accessible_resources": [
+    {
+      "resources": ["src/injected.js"],
+      "matches": ["https://*/*", "http://*/*"]
+    }
+  ]
+}
