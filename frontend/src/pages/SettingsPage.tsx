@@ -1,7 +1,6 @@
 import React, { useState, useEffect } from 'react'
 import { CheckCircle, AlertCircle, Eye, EyeOff } from 'lucide-react'
 import { scanApi } from '@/services/api'
-import { LoadingSpinner } from '@/components/LoadingSpinner'
 
 export const SettingsPage: React.FC = () => {
   const [apiKey, setApiKey] = useState('')

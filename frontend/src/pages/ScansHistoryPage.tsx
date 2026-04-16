@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react'
 import { Link } from 'react-router-dom'
-import { Search, AlertCircle, CheckCircle, Filter } from 'lucide-react'
+import { Search, AlertCircle, CheckCircle } from 'lucide-react'
 import { scanApi } from '@/services/api'
 import { RatingBadge } from '@/components/RatingBadge'
 import { LoadingSpinner } from '@/components/LoadingSpinner'
