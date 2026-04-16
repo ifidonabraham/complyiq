@@ -4,7 +4,7 @@ import { Search, AlertCircle, CheckCircle } from 'lucide-react'
 import { scanApi } from '@/services/api'
 import { RatingBadge } from '@/components/RatingBadge'
 import { LoadingSpinner } from '@/components/LoadingSpinner'
-import type { ScanResult, ScanListItem } from '@/types'
+import type { ScanListItem } from '@/types'
 
 export const DashboardPage: React.FC = () => {
   const [searchUrl, setSearchUrl] = useState('')

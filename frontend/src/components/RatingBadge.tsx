@@ -4,13 +4,11 @@ import clsx from 'clsx'
 interface RatingBadgeProps {
   rating: number
   size?: 'sm' | 'md' | 'lg'
-  verdict?: string | null
 }
 
 export const RatingBadge: React.FC<RatingBadgeProps> = ({ 
   rating, 
-  size = 'md',
-  verdict 
+  size = 'md'
 }) => {
   const getRatingColor = () => {
     if (rating >= 80) return { bg: 'bg-blue-500', text: 'text-blue-100', label: 'Excellent' }
