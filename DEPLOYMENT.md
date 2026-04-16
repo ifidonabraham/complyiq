@@ -15,23 +15,16 @@
 
 ### **Part A: Prepare Repository**
 
-1. **Initialize Git (if not already)**
-   ```bash
-   cd c:\Users\PC\Documents\ComplyIQ
-   git init
-   git add .
-   git commit -m "Initial ComplyIQ deployment"
-   ```
+✅ **Repository already created at:** https://github.com/ifidonabraham/complyiq
 
-2. **Create GitHub Repository**
-   - Go to github.com/new
-   - Create private repo: `complyiq`
-   - Push your code:
-   ```bash
-   git remote add origin https://github.com/YOUR_USERNAME/complyiq.git
-   git branch -M main
-   git push -u origin main
-   ```
+Your code is already uploaded to GitHub. No further git setup needed.
+
+**To verify your repo is ready:**
+```bash
+cd c:\Users\PC\Documents\ComplyIQ
+git remote -v  # Should show origin pointing to github.com/ifidonabraham/complyiq
+git branch  # Should show 'main' as current branch
+```
 
 3. **Create `.github/workflows/deploy.yml` for auto-deployment**
    ```yaml
@@ -59,7 +52,7 @@
 2. **Create Backend App**
    - Dashboard → New Project
    - Select "Deploy from GitHub"
-   - Select your `complyiq` repo
+   - Select repo: `ifidonabraham/complyiq`
    - Select `backend` as root directory
    - Wait for build (5-10 minutes)
 
@@ -97,7 +90,7 @@
 
 2. **Deploy Frontend**
    - Dashboard → New Project
-   - Import GitHub repo `complyiq`
+   - Import GitHub repo: `ifidonabraham/complyiq`
    - Framework preset: Vite
    - Root directory: `./frontend`
    - Build command: `npm run build`
@@ -154,7 +147,7 @@ services:
   - name: backend
     github:
       branch: main
-      repo: YOUR_USERNAME/complyiq
+      repo: ifidonabraham/complyiq
     build_command: pip install -r requirements.txt
     run_command: uvicorn app.main:app --host 0.0.0.0 --port 8080
     http_port: 8080
@@ -166,7 +159,7 @@ services:
   - name: frontend
     github:
       branch: main
-      repo: YOUR_USERNAME/complyiq
+      repo: ifidonabraham/complyiq
     build_command: npm install --legacy-peer-deps && npm run build
     source_dir: frontend/
     http_port: 3000
@@ -221,7 +214,7 @@ docker-compose --version
 
 ```bash
 cd /opt
-git clone https://github.com/YOUR_USERNAME/complyiq.git
+git clone https://github.com/ifidonabraham/complyiq.git
 cd complyiq
 ```
 
